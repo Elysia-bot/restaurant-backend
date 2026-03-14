@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/restaurant_db?useSSL=false&serverTimezone=Asia/Ho_Chi_Minh&allowPublicKeyRetrieval=true
+    username: root
+    password: root   # <-- đổi lại
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update          # update: tự tạo/sửa bảng, đừng dùng create vì sẽ xoá data
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  jackson:
+    time-zone: Asia/Ho_Chi_Minh
+    date-format: yyyy-MM-dd HH:mm:ss
+
+server:
+  port: 8080
+
+app:
+  jwt:
+    secret: "your-very-long-secret-key-at-least-256-bits-long-replace-this"   # <-- đổi lại, min 32 ký tự
+    expiration-ms: 86400000   # 24 giờ
+
+  # Base URL để tạo QR Code chứa link đến trang order của bàn
+  frontend-url: "http://localhost:3000"
+
+logging:
+  level:
+    com.restaurant: DEBUG
+    org.springframework.security: DEBUG
