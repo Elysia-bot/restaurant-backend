@@ -1,0 +1,8 @@
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+startCommand = "java -jar target/*.jar"
+healthcheckPath = "/api/categories"
+healthcheckTimeout = 60
+restartPolicyType = "ON_FAILURE"
