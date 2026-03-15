@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/restaurant_db?useSSL=false&serverTimezone=Asia/Ho_Chi_Minh&allowPublicKeyRetrieval=true
-    username: root
-    password: root   # <-- đổi lại
+    url: ${JDBC_URL:jdbc:mysql://localhost:3306/restaurant_db}
+    username: ${MYSQLUSER:root}
+    password: ${MYSQLPASSWORD:root}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
